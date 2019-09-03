@@ -1,0 +1,15 @@
+@import './normalize.scss';
+@import url('https://fonts.googleapis.com/css?family=Audiowide|Bangers|Courgette|Exo|Exo+2:400,900i|Kaushan+Script|Press+Start+2P&display=swap');
+@import './variables.scss';
+
+@import '../App/App';
+@import '../Nav/Nav';
+@import '../Main/Welcome/Welcome';
+@import '../Main/About/About';
+@import '../Main/Projects/Projects';
+@import '../Contact/Contact';
+@import '../Resume/Resume';
+
+html {
+  background: rgb(32.1%, 24.8%, 52.7%);
+}
