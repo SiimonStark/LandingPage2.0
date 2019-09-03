@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Projects = () => {
-  return (
-    <section className="Projects">
-      Projects
-    </section>
-  )
+class Projects extends Component {
+  constructor() {
+    super()
+    this.state = {
+      projects: [],
+    }
+  }
+
+  render() {
+    return (
+      <section className="Projects">
+        Projects
+      </section>
+    )
+  }
 }
 
 export default Projects;
