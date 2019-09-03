@@ -13,3 +13,10 @@
 html {
   background: rgb(32.1%, 24.8%, 52.7%);
 }
+
+.overlay {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, .7);
+}
