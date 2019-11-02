@@ -36,14 +36,25 @@ class Projects extends Component {
   render() {
     return (
       <section className="Projects">
-        <section className="projects-container">
-          <Primary />
-          <div className="projects_other">
-            <Mini />
-          </div>
-        </section>
+        <div className="projects-container">
+          <section className="Primary">
+            <h3 class="title">Title of Project</h3>
+            <p className="image">Img goes here</p>
+            <p className="descript">some sort of descriptive text will go in this area here</p>
+            <section className="mini-container">
+              <p className="mini_view">small img</p>
+              <p className="mini_view">small img</p>
+              <p className="mini_view">small img</p>
+            </section>
+          </section>
+          <section className="Preview">
+            <article className="thumbnail">1</article>
+            <article className="thumbnail">2</article>
+            <article className="thumbnail">3</article>
+          </section>
+        </div>
       </section>
-    )
+    );
   }
 }
 
