@@ -1,54 +1,81 @@
 import React, { Component } from 'react';
 import Primary from './Primary/Primary';
 import Mini from './Mini/Mini';
+import {projects} from './data/projectList';
 
 class Projects extends Component {
   constructor() {
     super()
     this.state = {
-      user: {},
       projects: [],
+      currentProject: {},
+      i: 1,
     }
   }
-
   componentDidMount() {
-    const url = 'https://api.github.com/users/siimonstark';
-    fetch(url)
-      .then(response => response.json())
-      .then(data => this.compileData(data))
-      .then(user => this.setState({user}))
-      .catch(error => console.log('**failed to fetch: ', error))
+    console.log('DAta', projects)
+    this.setState({projects, currentProject: projects[0]})
   }
 
-  compileData = (user) => {
-    const userInfo = {name: user.name, image: user.avatar_url};
-    console.log(user);
-    const repos = this.gatherStarred(user.starred_url);
-    return userInfo;
-  }
+  // componentDidMount() {
+  //   const url = 'https://api.github.com/users/siimonstark';
+  //   fetch(url)
+  //     .then(response => response.json())
+  //     .then(data => this.compileData(data))
+  //     .then(user => this.setState({user}))
+  //     .catch(error => console.log('**failed to fetch: ', error))
+  // }
 
-  gatherStarred = (star_url) => {
-    return fetch("https://api.github.com/users/SiimonStark/starred")
-      .then(response => response.json())
-      .then(data => console.log('Star Repos: ', data))
-  }
+  // compileData = (user) => {
+  //   const userInfo = {name: user.name, image: user.avatar_url};
+  //   console.log(user);
+  //   const repos = this.gatherStarred(user.starred_url);
+  //   return userInfo;
+  // }
+
+  // gatherStarred = (star_url) => {
+  //   return fetch("https://api.github.com/users/SiimonStark/starred")
+  //     .then(response => response.json())
+  //     .then(data => console.log('Star Repos: ', data))
+  // }
 
   render() {
+    let {i} = this.state;
+    const {name, screenshots, description, github, liveSite, tools} = this.state.currentProject;
+console.log("Project State-> ",this.state)
+
     return (
       <section className="Projects">
         <div className="projects-container">
           <section className="Primary">
-            <h3 class="title">Title of Project</h3>
-            <p className="image">Img goes here</p>
-            <p className="descript">
-              some sort of descriptive text will go in this area here
-            </p>
-            <section className="mini-container">
-              <p className="mini_view">small img</p>
-              <p className="mini_view">small img</p>
-              <p className="mini_view">small img</p>
-              <p className="mini_view">small img</p>
-              <p className="mini_view">small img</p>
+            <h3 className="title">{name && name}</h3>
+            <section className="image">
+              {i > 0 && (
+                <button onClick={() => this.setState({ i: i - 1 })}>
+                  Prev
+                </button>
+              )}
+              {screenshots && (
+                <img src={screenshots[i]} alt={`${name} screenshot`} />
+              )}
+              {screenshots && i < screenshots.length - 1 && (
+                <button onClick={() => this.setState({ i: i + 1 })}>
+                  Next
+                </button>
+              )}
+            </section>
+            <section className="descript">
+              <div>
+                {liveSite && (
+                  <a href={liveSite} target="blank">
+                    Live Site
+                  </a>
+                )}
+                <a href={github} target="blank">
+                  Github
+                </a>
+              </div>
+              {description}
             </section>
           </section>
           <section className="Preview">
