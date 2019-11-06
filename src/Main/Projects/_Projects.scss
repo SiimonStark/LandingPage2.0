@@ -19,10 +19,9 @@
   box-sizing: border-box;
   background-color: rgba(207, 105, 235, 0.427);
   display: grid;
-  grid-template-areas: "title mini-container"
-  "image mini-container"
-  "descript mini-container";
-  grid-template-columns: 75% 25%;
+  grid-template-areas: "title"
+  "image"
+  "descript";
   grid-template-rows: 10% 70% 20%;
 }
 
@@ -32,22 +31,6 @@
 
 .descript {
   grid-area: descript;
-}
-
-.mini-container {
-  box-sizing: border-box;
-  background-color: aqua;
-  gap: 3%;
-  grid-area: mini-container;
-  height: 100%;
-  display: grid;
-  grid-auto-rows: 30%;
-  padding: 10%;
-  overflow-y: scroll;
-
-  .mini_view {
-    background-color: bisque;
-  }
 }
 
 .Preview {
