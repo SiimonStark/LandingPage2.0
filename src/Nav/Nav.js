@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
 import Contact from '../Contact/Contact';
+import Resume from '../Resume/Resume';
 
 class Nav extends Component {
   constructor() {
@@ -19,7 +20,6 @@ class Nav extends Component {
   }
 
   render() {
-    console.log('Toggle that bitch!', this.state)
     return (
       <nav>
         <NavLink>About</NavLink>
@@ -37,6 +37,7 @@ class Nav extends Component {
           Resume
         </button>
         {this.state.displayContact && <Contact />}
+        {this.state.displayResume && <Resume />}
       </nav>
     )
   }
