@@ -9,6 +9,7 @@ class Projects extends Component {
     this.state = {
       projects: [],
       currentProject: {},
+      i: 1,
     }
   }
   componentDidMount() {
@@ -39,7 +40,7 @@ class Projects extends Component {
   // }
 
   render() {
-    let i = 0;
+    let {i} = this.state;
     const {name, screenshots, description, github, liveSite, tools} = this.state.currentProject;
 console.log("Project State-> ",this.state)
 
@@ -47,20 +48,32 @@ console.log("Project State-> ",this.state)
       <section className="Projects">
         <div className="projects-container">
           <section className="Primary">
-            <h3 className="title">
-              {name && name}
-            </h3>
-            {screenshots && (
-              <img
-                className="image"
-                src={screenshots[i]}
-                alt={`${name} screenshot`}
-              />
-            )}
+            <h3 className="title">{name && name}</h3>
+            <section className="image">
+              {i > 0 && (
+                <button onClick={() => this.setState({ i: i - 1 })}>
+                  Prev
+                </button>
+              )}
+              {screenshots && (
+                <img src={screenshots[i]} alt={`${name} screenshot`} />
+              )}
+              {screenshots && i < screenshots.length - 1 && (
+                <button onClick={() => this.setState({ i: i + 1 })}>
+                  Next
+                </button>
+              )}
+            </section>
             <section className="descript">
               <div>
-                {liveSite && <a href={liveSite} target="blank">Live Site</a>}
-                <a href={github} target="blank">Github</a>
+                {liveSite && (
+                  <a href={liveSite} target="blank">
+                    Live Site
+                  </a>
+                )}
+                <a href={github} target="blank">
+                  Github
+                </a>
               </div>
               {description}
             </section>
