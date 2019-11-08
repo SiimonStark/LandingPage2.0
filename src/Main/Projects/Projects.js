@@ -3,6 +3,8 @@ import Primary from './Primary/Primary';
 import Mini from './Mini/Mini';
 import {projects} from './data/projectList';
 
+// Todo => Setup a `isLoading` element!!
+
 class Projects extends Component {
   constructor() {
     super()
@@ -14,7 +16,6 @@ class Projects extends Component {
     }
   }
   componentDidMount() {
-    console.log('DAta', projects)
     this.setState({projects, currentProject: projects[0]})
   }
 
@@ -22,22 +23,22 @@ class Projects extends Component {
     const remainingProjects = this.state.projects.filter((p) => {
       return p.name !== this.state.currentProject.name;
     });
-    console.warn('List: ', remainingProjects);
 
     return remainingProjects.map((p, index) =>
       (<article 
         className="thumbnail" 
-        id={index} key={index}
-        onClick={e => this.displayProject(e)}
+        name={p.name} key={index}
+        onClick={() => this.displayProject(p)}
       >
         <h5>{p.name}</h5>
         <img src={p.screenshots[0]} alt={`Screenshot of ${p.name}`} />
       </article>)
-    )
+      )
   }
 
-  displayProject = (e) => {
-    this.setState({currentProject: this.state.projects[this.state.currentProject]})
+  displayProject = (prop) => {
+    const foundProject = this.state.projects.find(p => p.name === prop.name);
+    this.setState({currentProject: foundProject})
   }
 
   // componentDidMount() {
