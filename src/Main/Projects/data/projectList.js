@@ -88,22 +88,40 @@ export const projects = [
   }
 ];
 
-export const urlIcons = {
-  Scss: "https://sass-lang.com/assets/img/styleguide/color-1c4aab2b.png",
-  Javascript: "https://icon-library.net/images/javascript-icon-png/javascript-icon-png-23.jpg",
-  Jquery: "https://icon-library.net/images/jquery-icon-png/jquery-icon-png-27.jpg",
-  React: "https://icon-library.net/images/react-icon/react-icon-29.jpg",
-  Router: "https://cdn.freebiesupply.com/logos/thumbs/2x/react-router-logo.png",
-  Redux: "https://community.cdn.kony.com/sites/default/files/logo-redux.png",
-  Node: "https://icon-library.net/images/node-js-icon/node-js-icon-28.jpg",
-  Express: "https://admin.springsapps.com/uploads/b8be6ab92de3453badd84e3fa62bf0a2.svg",
-  Postgres: "https://icon-library.net/images/postgres-icon/postgres-icon-0.jpg",
-  Jest: "https://camo.githubusercontent.com/b8606e6a237d8e7e7800067f0f739129da1fa6f8/687474703a2f2f7365656b6c6f676f2e636f6d2f696d616765732f4a2f6a6573742d6c6f676f2d463939303145424246372d7365656b6c6f676f2e636f6d2e706e67",
-  Mocha: "https://camo.githubusercontent.com/f39943682aeb1eb67af145a3c49d6f6b87496e5e/68747470733a2f2f636c6475702e636f6d2f533975512d634f4c597a2e737667",
-  Vue: "https://cdn.iconscout.com/icon/free/png-512/vuejs-1175052.png",
-  Vuetify: "https://cdn.vuetifyjs.com/images/logos/vuetify-logo-300.png",
-  Heroku: "https://s3.us-east-2.amazonaws.com/upload-icon/uploads/icons/png/16468025301548141173-512.png",
-}
+export const urlIcons = [
+  { name: 'Scss', 
+    url: "https://sass-lang.com/assets/img/styleguide/color-1c4aab2b.png"},
+  { name: 'Javascript',
+    url: "https://icon-library.net/images/javascript-icon-png/javascript-icon-png-23.jpg"},
+  { name: 'JQuery',
+    url: "https://icon-library.net/images/jquery-icon-png/jquery-icon-png-27.jpg"},
+  { name: 'React', 
+    url: "https://icon-library.net/images/react-icon/react-icon-29.jpg"},
+  { name: 'Router',
+    url: "https://cdn.freebiesupply.com/logos/thumbs/2x/react-router-logo.png"},
+  { name: 'Redux',
+    url: "https://community.cdn.kony.com/sites/default/files/logo-redux.png"},
+  { name: 'Node',
+    url: "https://icon-library.net/images/node-js-icon/node-js-icon-28.jpg"},
+  { name: 'Express',
+    url: "https://admin.springsapps.com/uploads/b8be6ab92de3453badd84e3fa62bf0a2.svg"},
+  { name: 'Postgres',
+    url: "https://icon-library.net/images/postgres-icon/postgres-icon-0.jpg"},
+  { name: 'Jest',
+    url: "https://camo.githubusercontent.com/b8606e6a237d8e7e7800067f0f739129da1fa6f8/687474703a2f2f7365656b6c6f676f2e636f6d2f696d616765732f4a2f6a6573742d6c6f676f2d463939303145424246372d7365656b6c6f676f2e636f6d2e706e67"},
+  { name: 'Mocha',
+    url: "https://camo.githubusercontent.com/f39943682aeb1eb67af145a3c49d6f6b87496e5e/68747470733a2f2f636c6475702e636f6d2f533975512d634f4c597a2e737667"},
+  { name: 'Vue',
+    url: "https://cdn.iconscout.com/icon/free/png-512/vuejs-1175052.png"},
+  { name: 'Vuetify',
+    url : "https://cdn.vuetifyjs.com/images/logos/vuetify-logo-300.png"},
+  { name: 'Heroku',
+    url: "https://s3.us-east-2.amazonaws.com/upload-icon/uploads/icons/png/16468025301548141173-512.png"},
+  { name: 'Rails',
+    url: "https://icon-library.net/images/rails-icon/rails-icon-4.jpg"},
+  { name: 'Websockets',
+    url: "https://img10.androidappsapk.co/300/a/b/f/uk.ing.websocket.png"}
+]
 
 // ** Doesn't have all of the icons I would like
 // Saving for later....
@@ -119,6 +137,4 @@ export const devIcons = {
   Mocha: "devicon-mocha-plain",
   Vue: "devicon-vuejs-plain-wordmark",
   Heroku: "devicon-heroku-original-wordmark",
-  Rails: "https://icon-library.net/images/rails-icon/rails-icon-4.jpg",
-  Websockets: "https://img10.androidappsapk.co/300/a/b/f/uk.ing.websocket.png"
 }
