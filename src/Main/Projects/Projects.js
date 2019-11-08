@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Primary from './Primary/Primary';
 import Mini from './Mini/Mini';
-import {projects} from './data/projectList';
+import {projects, urlIcons} from './data/projectList';
 
 class Projects extends Component {
   constructor() {
@@ -33,6 +33,16 @@ class Projects extends Component {
     });
   }
 
+  renderToolIcons = () => {
+    return this.state.currentProject.tools.map(t => {
+      let icon = urlIcons.find(icon => icon.name === t);
+      return <div className="tool">
+        <h6>{t}</h6>
+        <img src={icon.url} alt={t + ' icon'} />
+      </div>
+    })
+  }
+
   changeScreenshot = (index, binary) => {
     this.setState({
       screenshotIndex: binary ? index + 1 : index - 1
@@ -48,7 +58,8 @@ class Projects extends Component {
           <Primary 
             project={currentProject}
             screenshotIndex={screenshotIndex}
-            changeScreenshot={this.changeScreenshot} />
+            changeScreenshot={this.changeScreenshot}
+            renderToolIcons={this.renderToolIcons} />
           <section className="Preview">
             {this.renderPreviewInstances()}
           </section>
