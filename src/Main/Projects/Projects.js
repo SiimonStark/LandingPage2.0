@@ -9,12 +9,35 @@ class Projects extends Component {
     this.state = {
       projects: [],
       currentProject: {},
-      i: 1,
+      projectIndex: 0,
+      screenshotIndex: 0,
     }
   }
   componentDidMount() {
     console.log('DAta', projects)
     this.setState({projects, currentProject: projects[0]})
+  }
+
+  renderPreviewInstances = () => {
+    const remainingProjects = this.state.projects.filter((p) => {
+      return p.name !== this.state.currentProject.name;
+    });
+    console.warn('List: ', remainingProjects);
+
+    return remainingProjects.map((p, index) =>
+      (<article 
+        className="thumbnail" 
+        id={index} key={index}
+        onClick={e => this.displayProject(e)}
+      >
+        <h5>{p.name}</h5>
+        <img src={p.screenshots[0]} alt={`Screenshot of ${p.name}`} />
+      </article>)
+    )
+  }
+
+  displayProject = (e) => {
+    this.setState({currentProject: this.state.projects[this.state.currentProject]})
   }
 
   // componentDidMount() {
@@ -40,7 +63,7 @@ class Projects extends Component {
   // }
 
   render() {
-    let {i} = this.state;
+    let {projectIndex, screenshotIndex} = this.state;
     const {name, screenshots, description, github, liveSite, tools} = this.state.currentProject;
 console.log("Project State-> ",this.state)
 
@@ -50,16 +73,16 @@ console.log("Project State-> ",this.state)
           <section className="Primary">
             <h3 className="title">{name && name}</h3>
             <section className="image">
-              {i > 0 && (
-                <button onClick={() => this.setState({ i: i - 1 })}>
+              {screenshotIndex > 0 && (
+                <button onClick={() => this.setState({ screenshotIndex: screenshotIndex - 1 })}>
                   Prev
                 </button>
               )}
               {screenshots && (
-                <img src={screenshots[i]} alt={`${name} screenshot`} />
+                <img src={screenshots[screenshotIndex]} alt={`${name} screenshot`} />
               )}
-              {screenshots && i < screenshots.length - 1 && (
-                <button onClick={() => this.setState({ i: i + 1 })}>
+              {screenshots && screenshotIndex < screenshots.length - 1 && (
+                <button onClick={() => this.setState({ screenshotIndex: screenshotIndex + 1 })}>
                   Next
                 </button>
               )}
@@ -79,9 +102,7 @@ console.log("Project State-> ",this.state)
             </section>
           </section>
           <section className="Preview">
-            <article className="thumbnail">1</article>
-            <article className="thumbnail">2</article>
-            <article className="thumbnail">3</article>
+            {name && this.renderPreviewInstances()}
           </section>
         </div>
       </section>
