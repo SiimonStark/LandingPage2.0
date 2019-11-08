@@ -93,7 +93,7 @@ export const urlIcons = [
     url: "https://sass-lang.com/assets/img/styleguide/color-1c4aab2b.png"},
   { name: 'Javascript',
     url: "https://icon-library.net/images/javascript-icon-png/javascript-icon-png-23.jpg"},
-  { name: 'Jquery',
+  { name: 'JQuery',
     url: "https://icon-library.net/images/jquery-icon-png/jquery-icon-png-27.jpg"},
   { name: 'React', 
     url: "https://icon-library.net/images/react-icon/react-icon-29.jpg"},
