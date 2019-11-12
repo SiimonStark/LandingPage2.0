@@ -12,6 +12,7 @@
   padding: 2%;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .Primary {
@@ -19,19 +20,89 @@
   box-sizing: border-box;
   background-color: rgba(207, 105, 235, 0.427);
   display: grid;
-  grid-template-areas: "title"
-  "image"
-  "descript";
-  grid-template-rows: 10% 70% 20%;
+  grid-template-areas: "image title"
+  "image descript";
+  grid-template-rows: 10% 90%;
+  grid-template-columns: 60% 40%;
 }
 
 .image {
   grid-area: image;
+
+  & img {
+    height: 80%;
+    width: 70%;
+  }
 }
 
 .descript {
   grid-area: descript;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
+
+.tool_icons {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  .tool {
+    margin: .5rem .75rem;
+    & img {
+      height: 2.2rem;
+      width: 2.2rem;
+    }
+  }
+}
+
+// !! --------------------------
+// !! --------------------------
+
+.tool {
+  position: relative;
+}
+
+.tool h6 {
+  visibility: hidden;
+  width: 5rem;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: -1.5rem;
+  left: 2.3rem;
+  margin-left: -60px;
+  text-transform: uppercase;
+  
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tool:hover h6 {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tool h6::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;  /* At the top of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+// !! --------------------------
+// !! --------------------------
 
 .Preview {
   box-sizing: border-box;
