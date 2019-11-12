@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Mailer from '../Mailer';
 
 class Contact extends Component {
   constructor() {
@@ -30,11 +31,7 @@ class Contact extends Component {
             <p>Example</p>
           </article>
           <div className="contact-divider"/>
-          <form className="mail">
-            <h2>Send me an E-mail!</h2>
-            <input type='text' placeholder="Fillout the body here..."/>
-            <input type='submit' value="SEND" disable="true" />
-          </form>
+          <Mailer />
         </section>
       </div>
     )

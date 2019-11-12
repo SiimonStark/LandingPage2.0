@@ -3,44 +3,70 @@ import React from "react";
 export default class extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { feedback: "", name: "Name", email: "siimonstark@gmail.com" };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = { feedback: "", name: "", email: "" };
+
+
   }
 
   render() {
+    const {name, email, feedback} = this.state;
+    console.log("Mailer state => ", this.state)
+
     return (
-      <form className="test-mailing">
+      <form className="test-mailing" onSubmit={this.handleSubmit}>
         <h1>Let's see if it works</h1>
         <div>
+          <input
+            name="name"
+            type="text"
+            className={!name && "incomplete"}
+            onChange={this.handleChange}
+            placeholder="Please provide your name or org..."
+            value={name}
+          />
+          <input
+            name="email"
+            type="email"
+            className={!email && "incomplete"}
+            onChange={this.handleChange}
+            placeholder="Contact email"
+            value={email}
+          />
           <textarea
             id="test-mailing"
-            name="test-mailing"
+            name="feedback"
+            className={!feedback && "incomplete"}
             onChange={this.handleChange}
-            placeholder="Post some lorem ipsum here"
+            placeholder="This will be the body of the email..."
             required
-            value={this.state.feedback}
-            style={{ width: "100%", height: "150px" }}
+            value={feedback}
           />
         </div>
         <input
-          type="button"
+          type="submit"
           value="Submit"
           className="btn btn--submit"
-          onClick={this.handleSubmit}
+          disabled={!feedback || !email}
         />
       </form>
     );
   }
 
-  handleChange(event) {
-    this.setState({ feedback: event.target.value });
+  handleChange = (event) => {
+    const {name, value} = event.target;
+    this.setState({ [name]: value });
   }
 
-  handleSubmit (event) {
-	const templateId = "template_38FtOS7A";
+  handleIncomplete = (event) => {
+    return this.state[event.target.name] ? "complete" : "incomplete"
+  }
 
-	this.sendFeedback(templateId, {message_html: this.state.feedback, from_name: this.state.name, reply_to: this.state.email})
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const templateId = "template_38FtOS7A";
+
+    this.sendFeedback(templateId, {message_html: this.state.feedback, from_name: this.state.name, reply_to: this.state.email})
+    this.setState({name: '', email: '', feedback: ''})
   }
 
   sendFeedback (templateId, variables) {
