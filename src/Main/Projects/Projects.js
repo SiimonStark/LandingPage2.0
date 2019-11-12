@@ -36,9 +36,9 @@ class Projects extends Component {
   renderToolIcons = () => {
     return this.state.currentProject.tools.map(t => {
       let icon = urlIcons.find(icon => icon.name === t);
-      return <div className="tool">
-        <h6>{t}</h6>
+      return <div className="tool" key={t}>
         <img src={icon.url} alt={t + ' icon'} />
+        <h6>{t}</h6>
       </div>
     })
   }
