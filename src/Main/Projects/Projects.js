@@ -1,56 +1,67 @@
 import React, { Component } from 'react';
 import Primary from './Primary/Primary';
 import Mini from './Mini/Mini';
+import {projects, urlIcons} from './data/projectList';
 
 class Projects extends Component {
   constructor() {
     super()
     this.state = {
-      user: {},
-      projects: [],
+      currentProject: projects[0],
+      screenshotIndex: 0,
     }
   }
 
-  componentDidMount() {
-    const url = 'https://api.github.com/users/siimonstark';
-    fetch(url)
-      .then(response => response.json())
-      .then(data => this.compileData(data))
-      .then(user => this.setState({user}))
-      .catch(error => console.log('**failed to fetch: ', error))
+  renderPreviewInstances = () => {
+    const remainingProjects = projects.filter((p) => {
+      return p.name !== this.state.currentProject.name;
+    });
+
+    return remainingProjects.map((p, index) =>
+      <Mini 
+        project={p} 
+        index={index} 
+        displayProject={this.displayProject} />
+    )
   }
 
-  compileData = (user) => {
-    const userInfo = {name: user.name, image: user.avatar_url};
-    console.log(user);
-    const repos = this.gatherStarred(user.starred_url);
-    return userInfo;
+  displayProject = (clickedProject) => {
+    const projectObj = projects.find(p => p.name === clickedProject.name);
+    this.setState({
+      currentProject: projectObj, 
+      screenshotIndex: 0
+    });
   }
 
-  gatherStarred = (star_url) => {
-    return fetch("https://api.github.com/users/SiimonStark/starred")
-      .then(response => response.json())
-      .then(data => console.log('Star Repos: ', data))
+  renderToolIcons = () => {
+    return this.state.currentProject.tools.map(t => {
+      let icon = urlIcons.find(icon => icon.name === t);
+      return <div className="tool" key={t}>
+        <img src={icon.url} alt={t + ' icon'} />
+        <h6>{t}</h6>
+      </div>
+    })
+  }
+
+  changeScreenshot = (index, binary) => {
+    this.setState({
+      screenshotIndex: binary ? index + 1 : index - 1
+    });
   }
 
   render() {
+    let {currentProject, screenshotIndex} = this.state;
+
     return (
       <section className="Projects">
         <div className="projects-container">
-          <section className="Primary">
-            <h3 class="title">Title of Project</h3>
-            <p className="image">Img goes here</p>
-            <p className="descript">some sort of descriptive text will go in this area here</p>
-            <section className="mini-container">
-              <p className="mini_view">small img</p>
-              <p className="mini_view">small img</p>
-              <p className="mini_view">small img</p>
-            </section>
-          </section>
+          <Primary 
+            project={currentProject}
+            screenshotIndex={screenshotIndex}
+            changeScreenshot={this.changeScreenshot}
+            renderToolIcons={this.renderToolIcons} />
           <section className="Preview">
-            <article className="thumbnail">1</article>
-            <article className="thumbnail">2</article>
-            <article className="thumbnail">3</article>
+            {this.renderPreviewInstances()}
           </section>
         </div>
       </section>
@@ -59,3 +70,34 @@ class Projects extends Component {
 }
 
 export default Projects;
+
+
+
+// Scraps____________
+// ==================
+// ==================
+// ==================
+// ==================
+// ==================
+// ==================
+  // componentDidMount() {
+  //   const url = 'https://api.github.com/users/siimonstark';
+  //   fetch(url)
+  //     .then(response => response.json())
+  //     .then(data => this.compileData(data))
+  //     .then(user => this.setState({user}))
+  //     .catch(error => console.log('**failed to fetch: ', error))
+  // }
+
+  // compileData = (user) => {
+  //   const userInfo = {name: user.name, image: user.avatar_url};
+  //   console.log(user);
+  //   const repos = this.gatherStarred(user.starred_url);
+  //   return userInfo;
+  // }
+
+  // gatherStarred = (star_url) => {
+  //   return fetch("https://api.github.com/users/SiimonStark/starred")
+  //     .then(response => response.json())
+  //     .then(data => console.log('Star Repos: ', data))
+  // }

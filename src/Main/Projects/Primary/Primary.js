@@ -1,30 +1,43 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class Primary extends Component {
-  constructor() {
-    super()
-    this.state= {
-      showInfo: false,
-    }
-  }
+const Primary = ({project, screenshotIndex, changeScreenshot, renderToolIcons}) => {
+  const {name, description, screenshots, github, liveSite, tools} = project;
+  return (
+    <section className="Primary">
+      <h3 className="title">{name}</h3>
+      <section className="image">
+        {screenshotIndex > 0 && (
+          <button onClick={() => changeScreenshot(screenshotIndex, 0)}>
+            Prev
+          </button>
+        )}
 
-  toggleInfo = () => {
-    const currentInfoState = this.state.showInfo;
-    this.setState({showInfo: !currentInfoState})
-  }
+        <img src={screenshots[screenshotIndex]} alt={`${name} screenshot`} />
 
-  render() {
-    const descript = false;
-    console.log('St:Primary', this.state)
-
-    return (
-      <article className="Mini">
-        <h1>Primary</h1>
-        <button onClick={this.toggleInfo}>Click</button>
-        {this.state.showInfo && <p>Example</p>}
-      </article>
-    )
-  }
+        {screenshotIndex < screenshots.length - 1 && (
+          <button onClick={() => changeScreenshot(screenshotIndex, 1)}>
+            Next
+          </button>
+        )}
+      </section>
+      <section className="descript">
+        <div>
+          {liveSite && (
+            <a href={liveSite} target="blank">
+              Live Site
+            </a>
+          )}
+          <a href={github} target="blank">
+            Github
+          </a>
+        </div>
+        <p>{description}</p>
+        <div className="tool_icons">
+          {renderToolIcons()}
+        </div>
+      </section>
+    </section>
+  );
 }
 
 export default Primary;
