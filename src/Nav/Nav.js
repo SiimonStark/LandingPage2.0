@@ -24,22 +24,20 @@ class Nav extends Component {
       <nav>
         <NavLink>About</NavLink>
         <NavLink>Projects</NavLink>
-        <button 
-          name="Contact"
-          onClick={this.togglePopup}
-        >
+        <button name="Contact" onClick={this.togglePopup}>
           Contact
         </button>
-        <button 
-          name="Resume"
-          onClick={this.togglePopup}
-        >
+        <button name="Resume" onClick={this.togglePopup}>
           Resume
         </button>
-        {this.state.displayContact && <Contact />}
-        {this.state.displayResume && <Resume />}
+        {this.state.displayContact && (
+          <Contact togglePopup={this.togglePopup} />
+        )}
+        {this.state.displayResume && (
+          <Resume togglePopup={this.togglePopup} />
+        )}
       </nav>
-    )
+    );
   }
 }
 
