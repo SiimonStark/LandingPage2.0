@@ -5,12 +5,12 @@ const Contact = ({togglePopup}) => {
 
   return (
     <div
-      className="overlay"
+      className="overlay x-overlay"
       name="Contact"
-      onClick={() => togglePopup(false, "Contact")}
+      onClick={(e) => togglePopup(e, false, "Contact")}
     >
       <section className="Contact">
-        <button name="Contact" onClick={() => togglePopup(false, "Contact")}>
+        <button  className="close x-overlay" name="Contact" onClick={(e) => togglePopup(e, false, "Contact")}>
           Close
         </button>
         <article className="info">

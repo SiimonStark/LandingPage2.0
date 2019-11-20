@@ -1,5 +1,28 @@
 .Resume {
+  position: relative;
   background: gray;
-  height: 40vh;
+  height: 70vh;
   width: 40vw;
+  padding: 2%;
+  box-sizing: border-box;
+
+  .close {
+    position: absolute;
+    right: 1.2rem;
+    top: 1.2rem;
+  }
+}
+
+.links {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 0 1.5rem 0;
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
