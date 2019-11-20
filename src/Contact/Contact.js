@@ -4,9 +4,15 @@ import Mailer from '../Mailer';
 const Contact = ({togglePopup}) => {
 
   return (
-    <div className="overlay">
-      <section className = "Contact">
-        <button name="Contact" onClick={(e) => togglePopup(e)}>Close</button>
+    <div
+      className="overlay"
+      name="Contact"
+      onClick={() => togglePopup(false, "Contact")}
+    >
+      <section className="Contact">
+        <button name="Contact" onClick={() => togglePopup(false, "Contact")}>
+          Close
+        </button>
         <article className="info">
           <h3>Phone:</h3>
           <p>(540)287-9664</p>
@@ -19,11 +25,11 @@ const Contact = ({togglePopup}) => {
           <h3>Twitter:</h3>
           <p>Example</p>
         </article>
-        <div className="contact-divider"/>
+        <div className="contact-divider" />
         <Mailer />
       </section>
     </div>
-  )
+  );
 }
 
 export default Contact;
