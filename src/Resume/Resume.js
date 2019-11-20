@@ -8,7 +8,12 @@ const Resume = ({togglePopup}) => {
           Close
         </button>
         <article className="resume light-resume">
-          image will go here w/ download options
+          <a href={require("../resource/Light Resume copy.pdf")} target="blank" rel="noopener norefferrer">
+            View
+          </a>
+          <a href={require("../resource/Light Resume copy.pdf")} download>
+            Download
+          </a>
         </article>
         <article className="resume dark-resume">
           image will go here w/ download options
