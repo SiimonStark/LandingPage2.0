@@ -13,10 +13,10 @@ class Nav extends Component {
   }
 
   togglePopup = (e, bool, modal) => {
-    // let { name } = e.target;
-    // let bool = this.state[`display${name}`];
-    console.log('Event', e)
-    this.setState({[`display${modal}`]: bool})
+    let { classList } = e.target;
+
+    if (classList.contains('x-overlay'))
+      this.setState({[`display${modal}`]: bool});
   }
 
   render() {
