@@ -2,9 +2,9 @@ import React from 'react';
 
 const Resume = ({togglePopup}) => {
   return (
-    <div className="overlay" onClick={(e) => togglePopup(e, false, "Resume")}>
+    <div className="overlay x-overlay" onClick={(e) => togglePopup(e, false, "Resume")}>
       <section className="Resume">
-        <button className="close" onClick={(e) => togglePopup(e, false, "Resume")}>
+        <button className="close x-overlay" onClick={(e) => togglePopup(e, false, "Resume")}>
           Close
         </button>
         <article className="resume light-resume">
