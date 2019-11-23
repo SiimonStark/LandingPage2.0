@@ -10,7 +10,6 @@ export default class extends React.Component {
 
   render() {
     const {name, email, feedback} = this.state;
-    console.log("Mailer state => ", this.state)
 
     return (
       <form className="test-mailing" onSubmit={this.handleSubmit}>
@@ -19,7 +18,7 @@ export default class extends React.Component {
           <input
             name="name"
             type="text"
-            className={!name && "incomplete"}
+            className={!name ? "incomplete" : "complete"}
             onChange={this.handleChange}
             placeholder="Please provide your name or org..."
             value={name}
@@ -27,7 +26,7 @@ export default class extends React.Component {
           <input
             name="email"
             type="email"
-            className={!email && "incomplete"}
+            className={!email ? "incomplete" : "complete"}
             onChange={this.handleChange}
             placeholder="Contact email"
             value={email}
@@ -35,7 +34,7 @@ export default class extends React.Component {
           <textarea
             id="test-mailing"
             name="feedback"
-            className={!feedback && "incomplete"}
+            className={!feedback ? "incomplete" : "complete"}
             onChange={this.handleChange}
             placeholder="This will be the body of the email..."
             required

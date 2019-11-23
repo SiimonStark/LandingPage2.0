@@ -12,11 +12,11 @@ class Nav extends Component {
     }
   }
 
-  togglePopup = (e) => {
-    let { name } = e.target;
-    let bool = this.state[`display${name}`];
+  togglePopup = (e, bool, modal) => {
+    let { classList } = e.target;
 
-    this.setState({[`display${name}`]: !bool})
+    if (classList.contains('x-overlay'))
+      this.setState({[`display${modal}`]: bool});
   }
 
   render() {
@@ -24,22 +24,22 @@ class Nav extends Component {
       <nav>
         <NavLink>About</NavLink>
         <NavLink>Projects</NavLink>
-        <button 
+        <button
           name="Contact"
-          onClick={this.togglePopup}
+          className="x-overlay"
+          onClick={(e) => this.togglePopup(e, true, "Contact")}
         >
           Contact
         </button>
-        <button 
-          name="Resume"
-          onClick={this.togglePopup}
-        >
+        <button className="x-overlay" name="Resume" onClick={(e) => this.togglePopup(e, true, "Resume")}>
           Resume
         </button>
-        {this.state.displayContact && <Contact />}
-        {this.state.displayResume && <Resume />}
+        {this.state.displayContact && (
+          <Contact togglePopup={this.togglePopup} />
+        )}
+        {this.state.displayResume && <Resume togglePopup={this.togglePopup} />}
       </nav>
-    )
+    );
   }
 }
 

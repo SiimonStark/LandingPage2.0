@@ -7,10 +7,12 @@ const Welcome = () => {
       <article>
         <h1>Justin Pyktel</h1>
         <h2>Frontend Engineer</h2>
-        <Headline />
+        
       </article>
     </section>
   )
 }
 
 export default Welcome;
+
+// <Headline />;
