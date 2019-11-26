@@ -5,19 +5,23 @@
   background: url("https://thumbs.gfycat.com/EthicalGrandCavy-size_restricted.gif");
   // background: url("https://wallpapersite.com/images/pages/pic_w/13310.png");
   background-size: cover;
+  font-family: 'Audiowide', cursive;
+    color: white;
 
   article {
-    border: 2px solid black;
     position: relative;
     left: 1rem;
     top: 65%;
     text-align: left;
+    z-index: 0;
   }
 
   h1 {
     margin: 0;
-    font-family: 'Audiowide', cursive;
-    color: white;
+    font-size: 2.8rem;
     color: url("https://media2.giphy.com/media/NEVT1WQFlHec8/giphy.gif");
+  }
+  h2 {
+    font-size: 1.8rem;
   }
 }

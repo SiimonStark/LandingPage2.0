@@ -1,11 +1,9 @@
-import React from "react";
+import React, {Component} from "react";
 
-export default class extends React.Component {
+class Mailer extends Component {
   constructor(props) {
     super(props);
     this.state = { feedback: "", name: "", email: "" };
-
-
   }
 
   render() {
@@ -56,10 +54,6 @@ export default class extends React.Component {
     this.setState({ [name]: value });
   }
 
-  handleIncomplete = (event) => {
-    return this.state[event.target.name] ? "complete" : "incomplete"
-  }
-
   handleSubmit = (event) => {
     event.preventDefault();
     const templateId = "template_38FtOS7A";
@@ -79,3 +73,5 @@ export default class extends React.Component {
   	.catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
   }
 }
+
+export default Mailer;
