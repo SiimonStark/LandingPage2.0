@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {NavLink} from 'react-router-dom';
 import Contact from '../Contact/Contact';
 import Resume from '../Resume/Resume';
 
@@ -22,16 +21,20 @@ class Nav extends Component {
   render() {
     return (
       <nav>
-        <NavLink>About</NavLink>
-        <NavLink>Projects</NavLink>
+        <button className="retro-button">About</button>
+        <button className="retro-button">Projects</button>
         <button
+          className="retro-button x-overlay"
           name="Contact"
-          className="x-overlay"
-          onClick={(e) => this.togglePopup(e, true, "Contact")}
+          onClick={e => this.togglePopup(e, true, "Contact")}
         >
           Contact
         </button>
-        <button className="x-overlay" name="Resume" onClick={(e) => this.togglePopup(e, true, "Resume")}>
+        <button
+          className="retro-button x-overlay"
+          name="Resume"
+          onClick={e => this.togglePopup(e, true, "Resume")}
+        >
           Resume
         </button>
         {this.state.displayContact && (

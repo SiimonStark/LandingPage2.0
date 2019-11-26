@@ -1,11 +1,30 @@
 nav {
   position: fixed;
-    top: 0;
-    left: 0;
-    width: 98vw;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    font-family: 'Audiowide', cursive;
-    font-size: 1.2rem;
+  z-index: 5;
+  // top: 1.5rem;
+  right: 1.5rem;
+  width: 98vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: 'Audiowide', cursive;
+  font-size: 1.2rem;
+
+  .retro-button {
+    background: lightgray;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 1rem .5rem;
+    padding: .3rem;
+    border-top-color: rgb(223, 223, 223);
+    border-left-color: rgb(223, 223, 223);
+    border-right-color: grey;
+    border-bottom-color: grey;
+    box-shadow: rgb(0, 0, 0) 1px 1px 0px 0px;
+    text-align: center;
+    cursor: pointer;
+    background: rgb(191, 191, 191);
+    border-width: 1px;
+    border-style: solid;
+  }
 }
