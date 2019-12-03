@@ -38,7 +38,7 @@ class Projects extends Component {
       let icon = urlIcons.find(icon => icon.name === t);
       return <div className="tool" key={t}>
         <img src={icon.url} alt={t + ' icon'} />
-        <h6>{t}</h6>
+        <h6 className="tip">{t}</h6>
       </div>
     })
   }
