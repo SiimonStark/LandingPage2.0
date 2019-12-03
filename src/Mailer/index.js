@@ -10,8 +10,10 @@ class Mailer extends Component {
     const {name, email, feedback} = this.state;
 
     return (
-      <form className="test-mailing" onSubmit={this.handleSubmit}>
-        <h1>Let's see if it works</h1>
+      <form 
+        className="Mailer" 
+        onSubmit={this.handleSubmit}
+      >
         <div>
           <input
             name="name"

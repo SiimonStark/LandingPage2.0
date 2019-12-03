@@ -1,5 +1,19 @@
 .Contact {
-  background: teal;
-  height: 40vh;
-  width: 40vw;
+  position: relative;
+  max-height: 55vh;
+  width: 50vw;
+  box-sizing: border-box;
+
+  background: #bfbfbf;
+  border: 1px solid;
+  border-top-color: #dfdfdf;
+  border-left-color: #dfdfdf;
+  border-right-color: gray;
+  border-bottom-color: gray;
+  box-shadow: 1px 1px 0 0 #000;
+}
+
+.Contact-content {
+  display: flex;
+  flex-direction: row;
 }
