@@ -15,6 +15,18 @@
 .Contact-content {
   display: flex;
   flex-direction: row;
+
+
+  h5 {
+    font-weight: 600;
+    margin: .7rem 0;
+  }
+
+  a {
+    color: #0645ad;
+    text-decoration: underline;
+    font-weight: 300;
+  }
 }
 
 .fields {
@@ -28,6 +40,8 @@
 
   input, textarea {
     width: 80%;
+    margin: .25rem 0;
+    padding: .25rem;
     font-size: .8em;
     color: rgb(7, 7, 7);
     box-shadow: gray -1px -1px 0px 0px, rgb(255, 255, 255) 1px 1px 0px 0px;
@@ -44,7 +58,7 @@
 }
 
 .info, .Mailer {
-  font-family: Tahoma, Verdana, Segoe, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, sans-serif;
+  font-family: Tahoma, Verdana, sans-serif;
   padding: 1rem;
   margin: 0 1px;
   border: 1px solid gray;
