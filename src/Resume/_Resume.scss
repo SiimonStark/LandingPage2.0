@@ -4,7 +4,6 @@
   max-height: 55vh;
   width: 35vw;
   box-sizing: border-box;
-
   background: #bfbfbf;
   border: 1px solid;
   border-top-color: #dfdfdf;
@@ -17,18 +16,17 @@
 .light-resume {
   display:  flex;
   flex-direction: row;
-
-  // align-items: space-between;
-  // margin: 0 1.5rem 0;
   height: 90%;
   padding: 1rem;
-
   border: 1px solid gray;
   border-right-color: #fff;
   border-bottom-color: #fff;
+  background: #bfbfbf;
+
 
   img {
-    width: 75%;
+    max-width: 75%;
+    min-width: 7rem;
   }
 }
 
@@ -47,6 +45,22 @@
 
     &:visited {
       color: black;
+    }
+  }
+}
+
+@media screen and (max-width: 675px) {
+  .Resume {
+    min-width: 70vw;
+    max-height: 65vh;
+  }
+  
+  .light-resume {
+    flex-direction: column;
+    height: 50%;
+
+    img {
+      max-width: 55%;
     }
   }
 }
