@@ -4,7 +4,6 @@
   max-height: 55vh;
   width: 35vw;
   box-sizing: border-box;
-
   background: #bfbfbf;
   border: 1px solid;
   border-top-color: #dfdfdf;
@@ -17,18 +16,17 @@
 .light-resume {
   display:  flex;
   flex-direction: row;
-
-  // align-items: space-between;
-  // margin: 0 1.5rem 0;
   height: 90%;
   padding: 1rem;
-
   border: 1px solid gray;
   border-right-color: #fff;
   border-bottom-color: #fff;
+  background: #bfbfbf;
+
 
   img {
-    width: 75%;
+    max-width: 75%;
+    min-width: 7rem;
   }
 }
 
@@ -51,30 +49,18 @@
   }
 }
 
-.retro-logo {
-  height: 1.7rem;
-  width: 1.7rem;
-  margin: 0.25rem .5rem;
-}
+@media screen and (max-width: 675px) {
+  .Resume {
+    min-width: 70vw;
+    max-height: 65vh;
+  }
+  
+  .light-resume {
+    flex-direction: column;
+    height: 50%;
 
-.retro-header {
-  padding: 2px;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background: linear-gradient(90deg,navy,#1084d0);
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 16px;
-  color: #fff;
-
-  border: 1px solid #fff;
-  border-right: 0 gray;
-  border-bottom: 0 gray;
-
-  .close {
-    margin: 0 .5rem 0 auto;
-    padding: .2rem .4rem;
+    img {
+      max-width: 55%;
+    }
   }
 }

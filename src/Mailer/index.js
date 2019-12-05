@@ -10,21 +10,26 @@ class Mailer extends Component {
     const {name, email, feedback} = this.state;
 
     return (
-      <form className="test-mailing" onSubmit={this.handleSubmit}>
-        <h1>Let's see if it works</h1>
-        <div>
+      <form 
+        className="Mailer" 
+        onSubmit={this.handleSubmit}
+      >
+      <p>
+        To reach out, please complete this form.
+      </p>
+        <div className="fields">
           <input
             name="name"
             type="text"
-            className={!name ? "incomplete" : "complete"}
+            
             onChange={this.handleChange}
-            placeholder="Please provide your name or org..."
+            placeholder="Name or Company"
             value={name}
           />
           <input
             name="email"
             type="email"
-            className={!email ? "incomplete" : "complete"}
+            
             onChange={this.handleChange}
             placeholder="Contact email"
             value={email}
@@ -32,7 +37,7 @@ class Mailer extends Component {
           <textarea
             id="test-mailing"
             name="feedback"
-            className={!feedback ? "incomplete" : "complete"}
+            
             onChange={this.handleChange}
             placeholder="This will be the body of the email..."
             required
@@ -42,7 +47,7 @@ class Mailer extends Component {
         <input
           type="submit"
           value="Submit"
-          className="btn btn--submit"
+          className="btn btn--submit retro-button"
           disabled={!feedback || !email}
         />
       </form>
