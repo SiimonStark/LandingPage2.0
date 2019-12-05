@@ -26,6 +26,14 @@ nav {
     background: rgb(191, 191, 191);
     border-width: 1px;
     border-style: solid;
+
+    &:active {
+      box-shadow: inset 1px 1px 0 0 #000;
+      border-top-color: gray;
+      border-left-color: gray;
+      border-right-color: #dfdfdf;
+      border-bottom-color: #dfdfdf;
+    }
   }
 }
 

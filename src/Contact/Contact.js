@@ -16,7 +16,7 @@ const Contact = ({togglePopup}) => {
             src={require("../resource/sunset.png")}
             alt="Justin's Sunset Logo"
           />
-          <p>Justin's Resume.exe</p>
+          <p>Justin's Contact Form.exe</p>
           <button
             className="retro-button close x-overlay"
             onClick={e => togglePopup(e, false, "Contact")}
@@ -27,15 +27,15 @@ const Contact = ({togglePopup}) => {
         <section className="Contact-content">
           <Mailer />
           <article className="info">
-            <h3>Phone:</h3>
+            <h5>Phone:</h5>
             <p>(540)287-9664</p>
-            <h3>Email:</h3>
+            <h5>Email:</h5>
             <p>SiimonStark@gmail.com</p>
-            <h3>Github:</h3>
+            <h5>Github:</h5>
             <p>Example</p>
-            <h3>LinkedIn:</h3>
+            <h5>LinkedIn:</h5>
             <p>Example</p>
-            <h3>Twitter:</h3>
+            <h5>Twitter:</h5>
             <p>Example</p>
           </article>
         </section>

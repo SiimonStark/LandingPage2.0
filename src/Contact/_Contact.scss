@@ -1,9 +1,8 @@
 .Contact {
   position: relative;
-  max-height: 55vh;
-  width: 50vw;
+  min-height: 20vh;
+  min-width: 35vw;
   box-sizing: border-box;
-
   background: #bfbfbf;
   border: 1px solid;
   border-top-color: #dfdfdf;
@@ -16,4 +15,45 @@
 .Contact-content {
   display: flex;
   flex-direction: row;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem;
+  height: 70%;
+  box-sizing: border-box;
+
+  input, textarea {
+    width: 80%;
+    font-size: .8em;
+    color: rgb(7, 7, 7);
+    box-shadow: gray -1px -1px 0px 0px, rgb(255, 255, 255) 1px 1px 0px 0px;
+    box-shadow: inset 1px 1px 0 0 #000;
+    border-top-color: gray;
+    border-left-color: gray;
+    border-right-color: #dfdfdf;
+    border-bottom-color: #dfdfdf;
+  }
+
+  textarea {
+    height: 3.5rem;
+  }
+}
+
+.info, .Mailer {
+  font-family: Tahoma, Verdana, Segoe, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, sans-serif;
+  padding: 1rem;
+  margin: 0 1px;
+  border: 1px solid gray;
+  border-right-color: #fff;
+  border-bottom-color: #fff;
+}
+
+@media screen and (max-width: 675px) {
+  .Contact-content {
+    flex-direction: column;
+  }
 }
