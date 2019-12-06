@@ -2,22 +2,25 @@ import React from 'react';
 
 const Primary = ({project, screenshotIndex, changeScreenshot, renderToolIcons}) => {
   const {name, description, screenshots, github, liveSite, tools} = project;
+  const imgBG = {
+    backgroundImage: `url(${screenshots[screenshotIndex]})`
+  }
+
   return (
     <section className="Primary">
       <h3 className="title">{name}</h3>
-      <section className="image">
+      <section className="image" style={imgBG}>
         {screenshotIndex > 0 && (
-          <button onClick={() => changeScreenshot(screenshotIndex, 0)}>
-            Prev
-          </button>
+          <button
+            className="left fas fa-caret-square-left"
+            onClick={() => changeScreenshot(screenshotIndex, 0)}
+          />
         )}
-
-        <img src={screenshots[screenshotIndex]} alt={`${name} screenshot`} />
-
         {screenshotIndex < screenshots.length - 1 && (
-          <button onClick={() => changeScreenshot(screenshotIndex, 1)}>
-            Next
-          </button>
+          <button
+            className="right fas fa-caret-square-right"
+            onClick={() => changeScreenshot(screenshotIndex, 1)}
+          />
         )}
       </section>
       <section className="descript">
@@ -32,9 +35,7 @@ const Primary = ({project, screenshotIndex, changeScreenshot, renderToolIcons}) 
           </a>
         </div>
         <p>{description}</p>
-        <div className="tool_icons">
-          {renderToolIcons()}
-        </div>
+        <div className="tool_icons">{renderToolIcons()}</div>
       </section>
     </section>
   );
