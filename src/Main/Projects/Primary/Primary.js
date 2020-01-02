@@ -8,7 +8,6 @@ const Primary = ({project, screenshotIndex, changeScreenshot, renderToolIcons}) 
 
   return (
     <section className="Primary">
-      <h3 className="title">{name}</h3>
       <section className="image" style={imgBG}>
         {screenshotIndex > 0 && (
           <button
@@ -24,17 +23,20 @@ const Primary = ({project, screenshotIndex, changeScreenshot, renderToolIcons}) 
         )}
       </section>
       <section className="descript">
-        <div>
-          {liveSite && (
-            <a href={liveSite} target="blank">
-              Live Site
-            </a>
-          )}
-          <a href={github} target="blank">
-            Github
-          </a>
-        </div>
-        <p>{description}</p>
+          <article className="descript_body">
+            <h3 className="title">{name}</h3>
+            <div>
+              {liveSite && (
+                <a href={liveSite} target="blank">
+                  Live Site
+                </a>
+              )}
+              <a href={github} target="blank">
+                Github
+              </a>
+            </div>
+            <p>{description}</p>
+          </article>
         <div className="tool_icons">{renderToolIcons()}</div>
       </section>
     </section>
