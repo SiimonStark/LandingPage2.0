@@ -7,7 +7,7 @@ const Mini = ({index, project, displayProject}) => {
       key={index}
       onClick={() => displayProject(project)}
     >
-      <h5>{project.name}</h5>
+      <h5 className="tip">{project.name}</h5>
       <img 
         src={project.screenshots[0]} 
         alt={`Screenshot of ${project.name}`} />
