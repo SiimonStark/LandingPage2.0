@@ -1,0 +1,45 @@
+@import './normalize.scss';
+@import url('https://fonts.googleapis.com/css?family=Audiowide|Bangers|Courgette|Exo|Exo+2:400,900i|Kaushan+Script|Press+Start+2P&display=swap');
+@import './variables.scss';
+
+@import '../App/App';
+@import '../Nav/Nav';
+@import '../Main/Welcome/Welcome';
+@import '../Main/About/About';
+@import '../Main/Projects/Projects';
+@import '../Contact/Contact';
+@import '../Resume/Resume';
+@import '../Mailer/';
+
+html {
+  // background: rgb(32.1%, 24.8%, 52.7%);
+  background: #2F2F2F;
+  width: 100vw;
+  box-sizing: border-box;
+  overflow-x: hidden;
+
+  -ms-overflow-style: none;  // IE 10+
+  scrollbar-width: none;  // Firefox
+
+  &::-webkit-scrollbar { 
+    // display: none;  // Safari and Chrome
+    background-color: rgba(0, 0, 0, .7);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(99, 80, 131, 0.75);
+    border-radius: 60px;
+  }
+}
+
+.overlay {
+  position: absolute;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 103vw;
+  background: rgba(0, 0, 0, .7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,260 @@
+.Projects {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+  top: 100vh;
+  background: #2F2F2F;
+}
+
+.projects-container {
+  height: 70%;
+  width: 85%;
+  background-color: rgb(72, 72, 72);
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.Primary {
+  height: 65%;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-areas: "image descript";
+  grid-template-columns: 55% 43%;
+}
+
+.image {
+  grid-area: image;
+  width: 100%;
+  position: relative;
+  // overflow: hidden;
+  background: rgba(10, 10, 10, 0.5);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0.5px 0.5px 2px black;
+
+  button {
+    background: none;
+    color: white;
+    border: none;
+    text-shadow: black 1px 1px 2px;
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    transition: color .5s;
+
+
+    &:hover {
+      cursor: pointer;
+      color: #e262f5;
+    }
+  }
+
+  .left {
+    left: -5px;
+  }
+
+  .right {
+    right: -5px;
+  }
+}
+
+.descript {
+  grid-area: descript;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-left: 1rem;
+}
+
+.descript_body {
+  background: #4e4066;
+  padding: .75rem;
+  border: double rgba(200, 200, 200, 0.3) 1px;
+  box-shadow: 1px 1px 2px black;
+  color: rgba(200, 200, 200, 0.9);
+
+  h3 {
+    font-size: 2rem;
+  }
+}
+
+.tool_icons {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  .tool {
+    margin: .5rem .75rem;
+    position: relative;
+    background: rgba(200, 200, 200, 0.3);
+    padding: .5rem;
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 3px black;
+
+
+    & img {
+      height: 2.2rem;
+      width: 2.2rem;
+    }
+  }
+}
+
+.tip {
+  visibility: hidden;
+  width: 5rem;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: -1.5rem;
+  left: 2.3rem;
+  margin-left: -60px;
+  text-transform: uppercase;
+  
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tool:hover .tip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tool .tip::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;  /* At the top of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+// !! --------------------------
+// !! --------------------------
+
+.Preview {
+  box-sizing: border-box;
+  // background-color: rgba(156, 159, 123, 0.3);
+  // height: 30%;
+  // width: 100%;
+  padding-top: .5rem;  
+  padding-bottom: .5rem;  
+  // display: grid;
+  // grid-auto-columns: 1fr;
+  // overflow-x: scroll;
+  overflow-y: hidden;
+  height: 30%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 25%);
+  overflow-x: hidden;
+  // overflow-y: hidden;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(200, 200, 200, 0.3);
+
+  &:hover {
+    overflow-x: scroll;
+  }
+
+  &::-webkit-scrollbar { 
+    // display: none;  // Safari and Chrome
+    background-color: rgba(200, 200, 200, 0.01);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(99, 80, 131, 0.75);
+    border-radius: 60px;
+  }
+
+
+  .thumbnail {
+    position: relative;
+    margin: 1rem;
+    height: 80%;
+    // overflow: hidden;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    & img {
+      // height: 100%;
+      width: 100%;
+    }
+  }
+
+  .tip {
+  visibility: hidden;
+  height: min-content;
+  width: min-content;
+  background-color: rgba(10, 10, 10, 0.8);
+  color: rgba(250, 250, 250, 0.9);
+  // text-shadow: .5px .5px 1px white;
+  text-align: center;
+  border-radius: 6px;
+  padding: .5rem;
+  position: absolute;
+  z-index: 10;
+  top: 6rem;
+  left: 7rem;
+  margin-left: -60px;
+  text-transform: uppercase;
+  border: .5px solid rgba(200, 200, 200, 0.7);
+  
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.thumbnail:hover .tip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.thumbnail .tip::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;  /* At the top of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+  z-index: 8;
+
+}
+}
+
+@media screen and (max-width: 720px) {
+  .Primary {
+    grid-template-areas: "image" "descript";
+    grid-template-rows: 60% 40%;
+    grid-template-columns: 90%;
+    grid-gap: 5rem;
+    // padding-left: 5%;
+    justify-content: center;
+  }
+
+  .descript {
+    padding: 0;
+    font-size: small;
+  }
+}

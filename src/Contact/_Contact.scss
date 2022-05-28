@@ -1,0 +1,74 @@
+.Contact {
+  position: relative;
+  min-height: 20vh;
+  min-width: 35vw;
+  box-sizing: border-box;
+  background: #bfbfbf;
+  border: 1px solid;
+  border-top-color: #dfdfdf;
+  border-left-color: #dfdfdf;
+  border-right-color: gray;
+  border-bottom-color: gray;
+  box-shadow: 1px 1px 0 0 #000;
+}
+
+.Contact-content {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+
+
+  h5 {
+    font-weight: 600;
+    margin: .7rem 0;
+  }
+
+  a {
+    color: #0645ad;
+    text-decoration: underline;
+    font-weight: 300;
+  }
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem;
+  min-height: 70%;
+  box-sizing: border-box;
+
+  input, textarea {
+    width: 80%;
+    margin: .25rem 0;
+    padding: .25rem;
+    font-size: .8em;
+    color: rgb(7, 7, 7);
+    box-shadow: gray -1px -1px 0px 0px, rgb(255, 255, 255) 1px 1px 0px 0px;
+    box-shadow: inset 1px 1px 0 0 #000;
+    border-top-color: gray;
+    border-left-color: gray;
+    border-right-color: #dfdfdf;
+    border-bottom-color: #dfdfdf;
+  }
+
+  textarea {
+    min-height: 3.5rem;
+  }
+}
+
+.info, .Mailer {
+  font-family: Tahoma, Verdana, sans-serif;
+  padding: 1rem;
+  margin: 0 1px;
+  border: 1px solid gray;
+  border-right-color: #fff;
+  border-bottom-color: #fff;
+}
+
+@media screen and (max-width: 675px) {
+  .Contact-content {
+    flex-direction: column;
+  }
+}
