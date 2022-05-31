@@ -15,14 +15,20 @@ class Nav extends Component {
     let { classList } = e.target;
 
     if (classList.contains('x-overlay'))
-      this.setState({[`display${modal}`]: bool});
+      this.setState({ [`display${modal}`]: bool });
   }
 
   render() {
+
     return (
       <nav>
-        <button className="retro-button">About</button>
-        <button className="retro-button">Projects</button>
+        <iframe src="https://open.spotify.com/embed/playlist/641i9u2FmO1zUj36qG0Q20?utm_source=generator" width="60%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        <button className="retro-button">
+          <a href='#About'>About</a>
+        </button>
+        <button className="retro-button">
+          <a href='#Projects'>Projects</a>
+        </button>
         <button
           className="retro-button x-overlay"
           name="Contact"

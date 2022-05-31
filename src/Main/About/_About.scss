@@ -1,11 +1,59 @@
 .About {
   content: '';
-  height: 100vh;
+  height: 150vh;
   width: 100vw;
   position: relative;
   top: 100vh;
   z-index: 5;
   background: #2F2F2F;
   box-shadow: -5px -5px 15px purple;
+  padding: 7%;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: $intel-text-bg;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
 
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  div {
+    width: 80%;
+  }
+
+  .tool_icons {
+    width: 100%;
+  }
+
+  .tool {
+    height: 90px;
+    width: 100px;
+
+    img {
+      height: auto !important;
+      width: 80% !important;
+    }
+  }
+}
+
+.experience {
+  li {
+    list-style: disc outside linear-gradient(to left bottom, rgba(59, 213, 247, 0.4), rgba(140, 0, 255, .7));
+  }
+
+  .header {
+    margin: 15px;
+  }
+
+  .description {
+    margin: 10px 25px;
+  }
+}
+
+hr {
+  width: 1000vw;
+  margin-left: -50vw;
 }
